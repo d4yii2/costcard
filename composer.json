@@ -1,0 +1,20 @@
+{
+    "name": "d4yii2/costcard",
+    "description": "Cost Card",
+    "type": "library",
+    "keywords": ["yii2"],
+    "authors": [
+        {
+            "name": "Uldis Nelsons",
+            "email": "uldis@weberp.lv"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "d4yii2\\costcard\\": ""
+        }
+    }
+}

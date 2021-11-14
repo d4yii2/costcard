@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="latin1" collation="latin1_swedish_ci">aluksne</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="cc_cost_card" view="colnames">
+<left>186</left>
+<top>19</top>
+<width>160</width>
+<height>267</height>
+<sql_create_table>CREATE TABLE `cc_cost_card` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sys_company_id` smallint(5) unsigned NOT NULL,
+  `previos_cost_card_id` int(10) unsigned DEFAULT NULL COMMENT 'Previos Cost Card',
+  `record_sys_model_id` tinyint(10) unsigned NOT NULL COMMENT 'Record Model',
+  `record_id` int(10) unsigned NOT NULL COMMENT 'Record',
+  `dimension_id` tinyint(3) unsigned NOT NULL COMMENT 'Dimension',
+  `qnt` decimal(13,3) unsigned NOT NULL COMMENT 'Quantity',
+  `unit_id` tinyint(3) unsigned NOT NULL COMMENT 'Unit',
+  `unit_price` decimal(10,3) unsigned NOT NULL COMMENT 'Unit Price',
+  `total_amount` decimal(10,3) unsigned NOT NULL COMMENT 'Total amount',
+  `dimension_model_id` tinyint(3) unsigned NOT NULL COMMENT 'Dimension model',
+  `dimension_record_id` int(10) unsigned NOT NULL COMMENT 'Dimension record',
+  PRIMARY KEY (`id`),
+  KEY `pack_id` (`record_sys_model_id`),
+  KEY `prev_pack` (`previos_cost_card_id`),
+  KEY `sys_model_id` (`dimension_model_id`),
+  KEY `dimension_id` (`dimension_id`),
+  KEY `unit_id` (`unit_id`),
+  CONSTRAINT `cc_cost_card_ibfk_dimension` FOREIGN KEY (`dimension_id`) REFERENCES `cc_dimension` (`id`),
+  CONSTRAINT `cc_cost_card_ibfk_dimension_sys_model` FOREIGN KEY (`dimension_model_id`) REFERENCES `sys_models` (`id`),
+  CONSTRAINT `cc_cost_card_ibfk_record_sys_model` FOREIGN KEY (`record_sys_model_id`) REFERENCES `sys_models` (`id`),
+  CONSTRAINT `cc_cost_card_ibfk_unit` FOREIGN KEY (`unit_id`) REFERENCES `cc_unit` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="cc_dimension" view="colnames">
+<left>392</left>
+<top>98</top>
+<width>133</width>
+<height>114</height>
+<sql_create_table>CREATE TABLE `cc_dimension` (
+  `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `sys_company_id` smallint(5) unsigned NOT NULL,
+  `name` varchar(20) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="cc_unit" view="colnames">
+<left>390</left>
+<top>221</top>
+<width>129</width>
+<height>97</height>
+<sql_create_table>CREATE TABLE `cc_unit` (
+  `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `code` varchar(20) NOT NULL,
+  KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="cc_models" view="colnames">
+<left>183</left>
+<top>301</top>
+<width>163</width>
+<height>114</height>
+<sql_create_table>CREATE TABLE `cc_models` (
+  `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `sys_model_id` tinyint(3) unsigned NOT NULL,
+  `class_name` varchar(256) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sys_model_id` (`sys_model_id`),
+  CONSTRAINT `cc_models_ibfk_1` FOREIGN KEY (`sys_model_id`) REFERENCES `sys_models` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="sys_models" view="colnames">
+<left>25</left>
+<top>91</top>
+<width>105</width>
+<height>114</height>
+<sql_create_table>CREATE TABLE `sys_models` (
+  `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `table_name` varchar(256) NOT NULL COMMENT 'Table',
+  `class_name` varchar(256) DEFAULT NULL COMMENT 'Class',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `table_name` (`table_name`,`class_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=ascii</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>

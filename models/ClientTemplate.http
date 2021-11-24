@@ -1,0 +1,12 @@
+GET https://horizonweb-cloud.visma.lv/REST_H34764033/rest/TDdmCustomerKred/template/2
+Accept: application/json
+Authorization: Basic RESTDEMO_ACONSULT 0QMochyCxD6EJmn5Xa90
+
+<> 2021-11-17T111354.200.xml
+<> 2021-11-17T111202.200.xml
+<> 2021-11-17T111030.200.xml
+<> 2021-11-17T110915.200.json
+<> 2021-11-17T110838.404.json
+<> 2021-11-17T110723.200.json
+
+###

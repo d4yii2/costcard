@@ -1,0 +1,21 @@
+POST https://horizonweb-cloud.visma.lv/REST_H34764033/rest/TDdmCustomerKred
+Content-type: application/xml;charset=UTF-8
+Accept: application/json
+Authorization: Basic RESTDEMO_ACONSULT 0QMochyCxD6EJmn5Xa90
+<XML>
+<resource>
+<entity xmlns="TDdmCustomer.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="TDdmCustomer.xsd TDdmCustomer.xsd">
+<KODS>CLT-001</KODS>
+<TIPS>3</TIPS>
+<NOSAUK>JDB Risinājumi</NOSAUK>
+<REG_NR>40003981976</REG_NR>
+<PVN_APLNR>40003981976</PVN_APLNR>
+<REZIDENTS>1</REZIDENTS>
+<PK_PARD/>
+<DBKRPAZ>1</DBKRPAZ>
+<SAITVEID>0</SAITVEID>
+<ADRESE>Klusā 5-2, Carnikava, LV2163</ADRESE>
+<STATUSS>0</STATUSS>
+</resource>
+</XML>
+###

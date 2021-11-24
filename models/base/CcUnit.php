@@ -63,11 +63,11 @@ abstract class CcUnit extends \yii\db\ActiveRecord
     
     /**
      * @inheritdoc
-     * @return \d4modules\manufacture\models\CcUnitQuery the active query used by this AR class.
+     * @return \d4yii2\costcard\models\CcUnitQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new \d4modules\manufacture\models\CcUnitQuery(get_called_class());
+        return new \d4yii2\costcard\models\CcUnitQuery(get_called_class());
     }
 
 }

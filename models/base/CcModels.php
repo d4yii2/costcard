@@ -66,11 +66,11 @@ abstract class CcModels extends \yii\db\ActiveRecord
     
     /**
      * @inheritdoc
-     * @return \d4modules\manufacture\models\CcModelsQuery the active query used by this AR class.
+     * @return \d4yii2\costcard\models\CcModelsQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new \d4modules\manufacture\models\CcModelsQuery(get_called_class());
+        return new \d4yii2\costcard\models\CcModelsQuery(get_called_class());
     }
 
 }

@@ -1,0 +1,4 @@
+GET https://horizonweb-cloud.visma.lv/REST_H34764033/rest/TDdmCustomer/278
+Accept: application/json
+Authorization: Basic RESTDEMO_ACONSULT 0QMochyCxD6EJmn5Xa90
+

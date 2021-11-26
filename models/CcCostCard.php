@@ -29,10 +29,7 @@ class CcCostCard extends BaseCcCostCard
      */
     public static function findByRecordModelAll($model): array
     {
-        return self::findAll([
-            'record_sys_model_id' => SysModelsDictionary::getIdByClassName(get_class($model)),
-            'record_id' => $model->id
-        ]);
+        return self::find()->whereRecordModel($model)->all();
     }
 
 }

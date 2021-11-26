@@ -66,11 +66,11 @@ abstract class CcDimension extends \yii\db\ActiveRecord
     
     /**
      * @inheritdoc
-     * @return \d4yii2\manufacture\models\CcDimensionQuery the active query used by this AR class.
+     * @return \d4yii2\costcard\models\CcDimensionQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new \d4yii2\manufacture\models\CcDimensionQuery(get_called_class());
+        return new \d4yii2\costcard\models\CcDimensionQuery(get_called_class());
     }
 
 }

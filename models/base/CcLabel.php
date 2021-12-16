@@ -13,7 +13,10 @@ use Yii;
  * @property string $name
  * @property integer $sys_model_id
  * @property integer $model_record_id
+ * @property integer $add_sys_model_id
+ * @property integer $add_model_record_id
  *
+ * @property \d4yii2\costcard\models\SysModels $addSysModel
  * @property \d4yii2\costcard\models\CcCostCard[] $ccCostCards
  * @property \d4yii2\costcard\models\SysModels $sysModel
  * @property string $aliasModel
@@ -38,11 +41,12 @@ abstract class CcLabel extends \yii\db\ActiveRecord
     {
         return [
             'required' => [['name', 'sys_model_id'], 'required'],
-            'tinyint Unsigned' => [['sys_model_id'],'integer' ,'min' => 0 ,'max' => 255],
+            'tinyint Unsigned' => [['sys_model_id','add_sys_model_id'],'integer' ,'min' => 0 ,'max' => 255],
             'smallint Unsigned' => [['id'],'integer' ,'min' => 0 ,'max' => 65535],
-            'integer Unsigned' => [['model_record_id'],'integer' ,'min' => 0 ,'max' => 4294967295],
+            'integer Unsigned' => [['model_record_id','add_model_record_id'],'integer' ,'min' => 0 ,'max' => 4294967295],
             [['name'], 'string', 'max' => 50],
-            [['sys_model_id'], 'exist', 'skipOnError' => true, 'targetClass' => \d4yii2\costcard\models\SysModels::className(), 'targetAttribute' => ['sys_model_id' => 'id']]
+            [['sys_model_id'], 'exist', 'skipOnError' => true, 'targetClass' => \d4yii2\costcard\models\SysModels::className(), 'targetAttribute' => ['sys_model_id' => 'id']],
+            [['add_sys_model_id'], 'exist', 'skipOnError' => true, 'targetClass' => \d4yii2\costcard\models\SysModels::className(), 'targetAttribute' => ['add_sys_model_id' => 'id']]
         ];
     }
 
@@ -56,6 +60,8 @@ abstract class CcLabel extends \yii\db\ActiveRecord
             'name' => Yii::t('costcard', 'Label Name'),
             'sys_model_id' => Yii::t('costcard', 'Sys Model'),
             'model_record_id' => Yii::t('costcard', 'Record'),
+            'add_sys_model_id' => Yii::t('costcard', 'Add model'),
+            'add_model_record_id' => Yii::t('costcard', 'Add Record'),
         ];
     }
 
@@ -68,7 +74,17 @@ abstract class CcLabel extends \yii\db\ActiveRecord
             'name' => Yii::t('costcard', 'Label Name'),
             'sys_model_id' => Yii::t('costcard', 'Sys Model'),
             'model_record_id' => Yii::t('costcard', 'Record'),
+            'add_sys_model_id' => Yii::t('costcard', 'Add model'),
+            'add_model_record_id' => Yii::t('costcard', 'Add Record'),
         ]);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAddSysModel()
+    {
+        return $this->hasOne(\d4yii2\costcard\models\SysModels::className(), ['id' => 'add_sys_model_id'])->inverseOf('ccLabels0');
     }
 
     /**

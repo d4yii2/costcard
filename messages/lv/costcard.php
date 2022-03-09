@@ -1,4 +1,28 @@
 <?php
 return [
-    'costcard' => 'Cost Card'
+    'costcard' => 'Izmaksu kartiņas',
+    'Sys Model' => 'Sys Model',
+    'Label Name' => 'Birkas nosaukums',
+    'Dimension record' => 'Dimensijas ieraksts',
+    'Cost Cards' => 'Izmaksu kartiņā',
+    'Label' => 'Birka',
+    'Class Name' => 'Class Name',
+    'Quantity' => 'Daudzums',
+    'Dimension' => 'Dimensija',
+    'Previos Cost Card' => 'Iepriekšejā izmaksu kartiņa',
+    'Unit' => 'Vienība',
+    'Code' => 'Kods',
+    'Cost Card' => 'Izmaksu kartiņa',
+    'Record Model' => 'Record Model',
+    'Name' => 'Nosaukums',
+    'Sys Model ID' => 'Sys Model ID',
+    'Sys Company ID' => 'Sys Company ID',
+    'Add model' => 'Pievienot modeli',
+    'Add Record' => 'Pievienot ierakstu',
+    'Record' => 'Ieraksts',
+    'ID' => 'ID',
+    'Dimension model' => 'Dimensijas tabula',
+    'Total amount' => 'Kopējā summa',
+    'Unit Price' => 'Vienības cena',
+    '????' => '????'
 ];

@@ -24,7 +24,7 @@ $activeDataProvider->pagination = false;
 $title = Yii::t('costcard', 'Cost Card');
 if (!$activeDataProvider->count) {
     $buttonCreate = ThButton::widget([
-        'label' => 'Create',
+        'label' => Yii::t('crud','Create'),
         'type' => ThButton::TYPE_PRIMARY,
         'size' => ThButton::SIZE_XSMALL,
         'link' => [
@@ -37,7 +37,7 @@ if (!$activeDataProvider->count) {
     ]);
 } else {
     $buttonDelete = ThButton::widget([
-        'label' => 'Delete',
+        'label' => Yii::t('crud','Delete'),
         'type' => ThButton::TYPE_DANGER,
         'size' => ThButton::SIZE_XSMALL,
         'link' => [
